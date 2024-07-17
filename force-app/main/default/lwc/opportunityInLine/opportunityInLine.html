@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Opportunity" icon-name="standard:opportunity">
+        <div style="height : 400px">
+            <lightning-datatable key-field="Id"
+                             data={data}
+                             columns={columns}
+                             show-row-number-column
+                             onsave={handleSave}
+                             draft-values={saveDraftValues}
+                             hide-checkbox-column>
+           </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

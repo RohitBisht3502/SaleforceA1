@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Contact Search" icon-name="standard:contact">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Contact Name" onchange={handleInputChange}></lightning-input>
+            <lightning-button label={buttonLabel} onclick={handleButtonClick} class="slds-m-top_small"></lightning-button>
+            <template if:true={showTable}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={data}
+                    columns={columns}
+                    onrowselection={handleRowSelection}
+                    max-row-selection="1">
+                </lightning-datatable>
+                <template if:true={selectedRecordDetails}>
+                    <div class="slds-m-top_medium">
+                        <h3>Contact Details</h3>
+                        <lightning-layout>
+                            <lightning-layout-item size="12">
+                                <p><strong>Contact ID:</strong> {selectedRecordDetails.Id}</p>
+                                <p><strong>Contact Name:</strong> {selectedRecordDetails.Name}</p>
+                                <p><strong>Phone:</strong> {selectedRecordDetails.Phone}</p>
+                                <p><strong>Email:</strong> {selectedRecordDetails.Email}</p>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
+
+

@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Account Info">
+        <div style="height: 200px">
+            <lightning-datatable 
+                        key-field="id"
+                        data ={data}
+                        columns={columns}>
+                
+            </lightning-datatable>
+            <button name ="test" onclick={getAccountsBasedOnName} title="Click Me!"></button>
+        </div>
+    </lightning-card>
+</template>

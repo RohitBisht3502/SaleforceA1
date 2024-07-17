@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Account Details" icon-name="standard : account">
+        <lightning-combobox label="Accounts"
+                            value={value}
+                            placeholder="Select Account"
+                            options={options}
+                            onchange={handlerChange}>
+        </lightning-combobox>
+    </lightning-card>
+
+    <template if:true={showCard}>
+        <lightning-card title="Opportunities details">
+            <lightning-datatable key-field="Id"
+                                data={data}
+                                columns={columns}>
+
+            </lightning-datatable>
+        </lightning-card>
+
+    </template>
+</template>

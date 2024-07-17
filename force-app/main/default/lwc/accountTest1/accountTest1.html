@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Account Manager" icon-name="standard:account">
+        <div class="slds-p-horizontal_medium">
+            <lightning-input label="Search" value={searchKey} onchange={handleSearchChange}></lightning-input>
+            <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+        </div>
+
+        <template if:true={accounts.length}>
+            <lightning-datatable
+                key-field="id"
+                data={accounts}
+                columns={columns}
+                selected-rows={selectedAccountIds}
+                onsave={handleSave}
+                onsort={handleSort}
+                onrowselection={handleRowSelection}>
+            </lightning-datatable>
+        </template>
+
+        <template if:true={accounts.length}>
+            <lightning-button label="Delete Selected" onclick={handleDelete}></lightning-button>
+        </template>
+
+        <template if:false={accounts.length}>
+            <p>No accounts found.</p>
+        </template>
+    </lightning-card>
+</template>
